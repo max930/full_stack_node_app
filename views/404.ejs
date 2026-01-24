@@ -1,0 +1,38 @@
+<%- include("partials/head") %>
+
+<body class="min-h-screen flex flex-col overflow-x-hidden w-full bg-gray-50">
+  <%- include("partials/header") %>
+
+  <main class="grow flex flex-col items-center justify-center text-center px-4 py-20">
+    
+    <h1 class="text-9xl font-extrabold text-blue-100 tracking-widest select-none">
+      404
+    </h1>
+
+    <div class="relative -mt-10 sm:-mt-16">
+      <div class="bg-blue-600 text-white text-xs font-bold uppercase rounded-full px-2 py-1 inline-block mb-4 shadow-sm">
+        Error
+      </div>
+      
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        Page not found
+      </h2>
+      
+      <p class="text-gray-500 max-w-md mx-auto mb-8 text-base sm:text-lg">
+        Sorry, we couldn't find the page you're looking for. It might have been moved or deleted.
+      </p>
+
+      <a href="/" 
+         class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+        <svg class="w-5 h-5 mr-2 -ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+        </svg>
+        Return Home
+      </a>
+    </div>
+
+  </main>
+
+  <%- include("partials/footer") %>
+</body>
+</html>

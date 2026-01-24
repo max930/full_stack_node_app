@@ -1,0 +1,239 @@
+<%- include("../partials/head") %>
+
+<body class="min-h-screen flex flex-col overflow-x-hidden w-full bg-blue-50">
+  <%- include("../partials/header") %>
+
+  <main class="grow py-12 min-h-screen">
+    <div class="max-w-2xl mx-auto px-4">
+      
+      <div class="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden backdrop-blur-sm">
+        
+        <div class="px-8 py-8 bg-blue-600 text-white">
+          <h2 class="text-3xl font-bold">Create an Account</h2>
+          <p class="text-blue-100 mt-2">Join us today and start your journey</p>
+        </div>
+
+        <form action="/signup" method="POST" class="p-8 space-y-6">
+
+          <% if(errorMessages && errorMessages.length > 0) { %>
+            <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg">
+              <div class="flex items-start">
+                <div class="shrink-0">
+                  <svg class="h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm font-medium text-red-800 mb-2">Please fix the following errors:</p>
+                  <ul class="space-y-1">
+                    <% errorMessages.forEach(error => { %>  
+                      <li class="text-sm text-red-700 flex items-center">
+                        <span class="mr-2">•</span><%= error %>
+                      </li>           
+                    <% }) %>   
+                  </ul>
+                </div>
+              </div>
+            </div>          
+          <% } %>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="firstName" class="block text-sm font-semibold text-gray-800 mb-2">First Name</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <input 
+                  type="text" 
+                  name="firstName" 
+                  id="firstName"
+                  value="<%= oldData ? oldData.firstName : '' %>"
+                  placeholder="Sachin" 
+                  required
+                  class="w-full pl-11 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all hover:border-gray-400"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="lastName" class="block text-sm font-semibold text-gray-800 mb-2">Last Name</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <input 
+                  type="text" 
+                  name="lastName" 
+                  id="lastName"
+                  value="<%= oldData ? oldData.lastName : '' %>"
+                  placeholder="Sehrawat" 
+                  required
+                  class="w-full pl-11 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all hover:border-gray-400"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-semibold text-gray-800 mb-2">Email Address</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M2.94 6.412A2 2 0 002 8.341V16a2 2 0 002 2h12a2 2 0 002-2V8.34a2 2 0 00-.94-1.679l-7.476-4.407a2 2 0 00-2.152 0L2.94 6.412z" />
+                  <path fill-rule="evenodd" d="M16.846 5.236l-7.477-4.407a2 2 0 00-2.152 0L.95 5.236A2 2 0 000 7.154V7.26l6.57-4.584a2 2 0 012.152 0L16 7.261v-.107a2 2 0 00-.154-.918z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input 
+                type="email" 
+                name="email" 
+                id="email"
+                value="<%= oldData ? oldData.email : '' %>"
+                placeholder="john@example.com" 
+                required
+                class="w-full pl-11 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all hover:border-gray-400"
+              />
+            </div>
+          </div>
+          
+          <div>
+            <label for="role" class="block text-sm font-semibold text-gray-800 mb-2">I am a...</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v2h8v-2zM16 11a4 4 0 10-8 0v2h8v-2z" />
+                </svg>
+              </div>
+              <select 
+                name="role" 
+                id="role"
+                required
+                class="w-full pl-11 pr-10 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all appearance-none bg-white hover:border-gray-400"
+              >
+                <option value="" disabled <% if(!oldData || !oldData.role) { %>selected<% } %>>Select your role</option>
+                <option value="guest" <% if(oldData && oldData.role === 'guest') { %>selected<% } %>>Guest</option>
+                <option value="host" <% if(oldData && oldData.role === 'host') { %>selected<% } %>>Host</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label for="password" class="block text-sm font-semibold text-gray-800 mb-2">Password</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input 
+                type="password" 
+                name="password" 
+                id="password"
+                value="<%= oldData ? oldData.password : '' %>"
+                placeholder="••••••••" 
+                required
+                minlength="8"
+                class="w-full pl-11 pr-12 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all hover:border-gray-400"
+              />
+              <button
+                type="button"
+                onclick="togglePassword('password')"
+                class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg class="h-5 w-5" id="password-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                  <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">Minimum 8 characters</p>
+          </div>
+          
+          <div>
+            <label for="confirmpassword" class="block text-sm font-semibold text-gray-800 mb-2">Confirm Password</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input 
+                type="password" 
+                name="confirmpassword" 
+                id="confirmpassword"
+                value="<%= oldData ? oldData.confirmpassword : '' %>"
+                placeholder="••••••••" 
+                required
+                class="w-full pl-11 pr-12 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all hover:border-gray-400"
+              />
+              <button
+                type="button"
+                onclick="togglePassword('confirmpassword')"
+                class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg class="h-5 w-5" id="confirmpassword-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                  <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input 
+                id="terms" 
+                name="terms" 
+                type="checkbox"
+                <% if(oldData && oldData.terms === 'on') { %>checked<% } %>
+                required
+                class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 cursor-pointer"
+              />
+            </div>
+            <label for="terms" class="ml-2 text-sm font-medium text-gray-900 cursor-pointer">
+              I accept the <a href="#" class="text-blue-600 hover:underline font-semibold">Terms and Conditions</a>
+            </label>
+          </div>
+
+          <div class="pt-4">
+            <button 
+              type="submit" 
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0">
+              Create Account
+            </button>
+          </div>
+
+          <p class="text-sm font-light text-gray-500 text-center">
+            Already have an account? <a href="/login" class="font-semibold text-blue-600 hover:underline">Login here</a>
+          </p>
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function togglePassword(fieldId) {
+      const field = document.getElementById(fieldId);
+      const icon = document.getElementById(fieldId + '-icon');
+      
+      if (field.type === 'password') {
+        field.type = 'text';
+        icon.innerHTML = '<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />';
+      } else {
+        field.type = 'password';
+        icon.innerHTML = '<path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />';
+      }
+    }
+  </script>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>
