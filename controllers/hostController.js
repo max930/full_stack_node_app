@@ -40,6 +40,8 @@ const getEditHome = async (req, res, next) => {
 
 const postEditHome = async (req, res, next) => {
   try {
+    console.log(req.file);
+    
     const { id, houseName, description, price, rating, location } = req.body
 
     const home = await Home.findOne({ _id: id })
@@ -84,6 +86,9 @@ const postDeleteHome = async (req, res, next) => {
 const postAddHome = async (req, res, next) => {
   try {
     const photoPath = req.file ? req.file.filename : "default-home.jpg";
+    console.log(req.file);
+    
+    
     const { houseName, description, price, location, rating } = req.body
 
     const newHome = new Home({ houseName, description, price, location, rating, photo: photoPath })
@@ -113,15 +118,4 @@ const getHostHomes = (req, res, next) => {
 }
 
 
-
-const hostProtect = (req, res, next) => {
-  const userType = req.user.role;
-
-  if (userType === "host") {
-    next()
-  } else {
-    return res.redirect("/")
-  }
-}
-
-module.exports = { getAddHome, postAddHome, getHostHomes, getEditHome, postEditHome, postDeleteHome, hostProtect }
+module.exports = { getAddHome, postAddHome, getHostHomes, getEditHome, postEditHome, postDeleteHome }
