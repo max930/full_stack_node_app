@@ -48,7 +48,7 @@ app.use(pageNotFound)
 
 
 // connect mongoose and run server
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 mongoose.connect(process.env.MONGODB_URL).then(() => {
   console.log("MongoDb Connected");
   app.listen(PORT, () => {
