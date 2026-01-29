@@ -1,6 +1,7 @@
 const fs = require("fs")
 const Home = require("../models/home")
 const rootDir = require("../utils/pathUtil")
+const uploadOnCloudinary = require("../utils/cloudinary")
 
 const getAddHome = (req, res, next) => {
   res.render("host/edit-home", {
@@ -40,8 +41,6 @@ const getEditHome = async (req, res, next) => {
 
 const postEditHome = async (req, res, next) => {
   try {
-    console.log(req.file);
-    
     const { id, houseName, description, price, rating, location } = req.body
 
     const home = await Home.findOne({ _id: id })
@@ -52,11 +51,11 @@ const postEditHome = async (req, res, next) => {
     home.rating = rating
     home.location = location
 
-    if (req.file) {      
-      fs.unlink(`${rootDir}/public/temp/${home.photo}`, (err) => {
-        if (err) { console.log("Error while deleting file: ", err); }
-      })
-      home.photo = `${req.file.filename}`
+    if (req.file) {
+      const photoUrl = await uploadOnCloudinary(`${rootDir}/public/temp/${req.file.filename}`)
+      if (photoUrl) {
+        home.photo = photoUrl
+      }
     }
 
     await home.save()
@@ -85,11 +84,12 @@ const postDeleteHome = async (req, res, next) => {
 
 const postAddHome = async (req, res, next) => {
   try {
-    const photoPath = req.file ? req.file.filename : "default-home.jpg"; 
-    
+    const photoUrl = req.file ? await uploadOnCloudinary(`${rootDir}/public/temp/${req.file.filename}`) : "https://res.cloudinary.com/dbsimzeri/image/upload/v1769678345/tfqmglrvey3ftrvfmqsh.png";
+
+
     const { houseName, description, price, location, rating } = req.body
 
-    const newHome = new Home({ houseName, description, price, location, rating, photo: photoPath })
+    const newHome = new Home({ houseName, description, price, location, rating, photo: photoUrl })
     await newHome.save()
 
     return res.render("host/home-added", {

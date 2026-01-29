@@ -15,7 +15,7 @@ const hostProtect = (req, res, next) => {
   if (req.user.role === "host") {
     next()
   } else {
-    return res.redirect("/home")
+    return res.redirect("/homes")
   }
 }
 
