@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 const cloudinary = require('cloudinary').v2
 
 // Configuration
@@ -17,25 +17,13 @@ const uploadOnCloudinary  = async (filePath) => {
         fs.unlinkSync(filePath) // remove the local temporery file
 
         return response.url       
-        
+
     } catch (error) {
         fs.unlinkSync(filePath); // remove the local temporery file
         return null;        
     }
-
-
-
-
-
-
-    const uploadResult = await cloudinary.uploader
-        .upload('https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg', { public_id: 'shoes', })
-        .catch((error) => {
-            console.log(error);
-        });
-
-
-    return uploadResult
 }
+
+
 
 module.exports = uploadOnCloudinary 

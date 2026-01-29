@@ -52,7 +52,7 @@ const postEditHome = async (req, res, next) => {
     home.location = location
 
     if (req.file) {
-      const photoUrl = await uploadOnCloudinary(`${rootDir}/public/temp/${req.file.filename}`)
+      const photoUrl = await uploadOnCloudinary(req.file.path)
       if (photoUrl) {
         home.photo = photoUrl
       }
@@ -84,8 +84,11 @@ const postDeleteHome = async (req, res, next) => {
 
 const postAddHome = async (req, res, next) => {
   try {
-    const photoUrl = req.file ? await uploadOnCloudinary(`${rootDir}/public/temp/${req.file.filename}`) : "https://res.cloudinary.com/dbsimzeri/image/upload/v1769678345/tfqmglrvey3ftrvfmqsh.png";
+    let photoUrl = "https://res.cloudinary.com/dbsimzeri/image/upload/v1769678345/tfqmglrvey3ftrvfmqsh.png";
 
+    if(req.file){
+      photoUrl = await uploadOnCloudinary(req.file.path)
+    }
 
     const { houseName, description, price, location, rating } = req.body
 
