@@ -53,7 +53,7 @@ const postEditHome = async (req, res, next) => {
     home.location = location
 
     if (req.file) {      
-      fs.unlink(`${rootDir}/uploads/${home.photo}`, (err) => {
+      fs.unlink(`${rootDir}/public/temp/${home.photo}`, (err) => {
         if (err) { console.log("Error while deleting file: ", err); }
       })
       home.photo = `${req.file.filename}`
@@ -85,9 +85,7 @@ const postDeleteHome = async (req, res, next) => {
 
 const postAddHome = async (req, res, next) => {
   try {
-    const photoPath = req.file ? req.file.filename : "default-home.jpg";
-    console.log(req.file);
-    
+    const photoPath = req.file ? req.file.filename : "default-home.jpg"; 
     
     const { houseName, description, price, location, rating } = req.body
 

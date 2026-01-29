@@ -25,7 +25,6 @@ app.set("views", "views")
 
 // middlewares
 app.use(express.static(path.join(rootDir, 'public')))
-app.use("/uploads", express.static(path.join(rootDir, 'uploads')))
 app.use(express.urlencoded())
 
 // create user session
